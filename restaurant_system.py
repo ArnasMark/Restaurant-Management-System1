@@ -4,3 +4,8 @@ class MenuItem(ABC):
             raise ValueError("Item ID must be positive.")
         if not name.strip():
             raise ValueError("Name cannot be empty.")
+        if price < 0:
+            raise ValueError("Price cannot be negative.")
+        self.item_id = item_id
+        self.name = name.strip()
+        self.price = price
