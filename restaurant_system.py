@@ -35,3 +35,8 @@ class FoodItem(MenuItem):
     def __str__(self):
         vegan_text = " | Vegan" if self.vegan else ""
         return f"{super().__str__()}{vegan_text}"
+
+
+class DrinkItem(MenuItem):
+    def __init__(self, item_id: int, name: str, price: float, size_ml: int):
+        super().__init__(item_id, name, price)
