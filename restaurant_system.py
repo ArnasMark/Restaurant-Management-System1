@@ -62,3 +62,6 @@ class OrderItem:
             raise ValueError("Quantity must be greater than zero.")
         self.menu_item = menu_item
         self.quantity = quantity
+
+    def subtotal(self) -> float:
+        return self.menu_item.final_price() * self.quantity
