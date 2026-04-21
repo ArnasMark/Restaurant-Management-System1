@@ -22,3 +22,6 @@ class MenuItem(ABC):
         return f"{self.item_id}. {self.name} | {self.item_type()} | {self.final_price():.2f} EUR"
 
 class FoodItem(MenuItem):
+    def __init__(self, item_id: int, name: str, price: float, vegan: bool = False):
+        super().__init__(item_id, name, price)
+        self.vegan = vegan
