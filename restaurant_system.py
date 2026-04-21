@@ -9,3 +9,11 @@ class MenuItem(ABC):
         self.item_id = item_id
         self.name = name.strip()
         self.price = price
+
+    @abstractmethod
+    def final_price(self) -> float:
+        raise NotImplementedError
+
+    @abstractmethod
+    def item_type(self) -> str:
+        raise NotImplementedError
