@@ -17,3 +17,8 @@ class MenuItem(ABC):
     @abstractmethod
     def item_type(self) -> str:
         raise NotImplementedError
+
+    def __str__(self):
+        return f"{self.item_id}. {self.name} | {self.item_type()} | {self.final_price():.2f} EUR"
+
+class FoodItem(MenuItem):
