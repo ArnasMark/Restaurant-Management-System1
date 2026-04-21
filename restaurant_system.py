@@ -85,3 +85,9 @@ class Order:
         if self.status == "Closed":
             raise ValueError("Cannot modify closed order.")
         self.items.append(OrderItem(menu_item, quantity))
+
+    def calculate_total(self) -> float:
+        subtotal = sum(item.subtotal() for item in self.items)
+        total = subtotal * (1 - self.discount)
+        total += total * self.service_fee
+        return total
