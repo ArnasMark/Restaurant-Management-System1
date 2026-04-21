@@ -51,3 +51,6 @@ class DrinkItem(MenuItem):
 
     def item_type(self) -> str:
         return "Drink"
+
+    def __str__(self):
+        return f"{super().__str__()} | {self.size_ml} ml"
