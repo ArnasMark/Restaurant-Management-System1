@@ -96,3 +96,10 @@ class Order:
         if not self.items:
             raise ValueError("Cannot close empty order.")
         self.status = "Closed"
+
+    def __str__(self):
+        return (
+            f"Order #{self.order_id} | Customer: {self.customer_name} | "
+            f"Table: {self.table_number} | Status: {self.status} | "
+            f"Total: {self.calculate_total():.2f} EUR"
+        )
