@@ -130,3 +130,9 @@ class OrderBuilder:
     def add_item(self, menu_item: MenuItem, quantity: int):
         self._items.append((menu_item, quantity))
         return self
+
+    def set_discount(self, discount: float):
+        if discount < 0 or discount > 1:
+            raise ValueError("Discount must be between 0 and 1.")
+        self._discount = discount
+        return self
