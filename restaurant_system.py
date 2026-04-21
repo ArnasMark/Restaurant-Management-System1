@@ -91,3 +91,8 @@ class Order:
         total = subtotal * (1 - self.discount)
         total += total * self.service_fee
         return total
+
+    def close_order(self):
+        if not self.items:
+            raise ValueError("Cannot close empty order.")
+        self.status = "Closed"
