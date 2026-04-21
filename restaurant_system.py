@@ -114,3 +114,19 @@ class OrderBuilder:
         self._table_number = None
         self._items = []
         self._discount = 0.0
+
+    def set_order_id(self, order_id: int):
+        self._order_id = order_id
+        return self
+
+    def set_customer(self, customer_name: str):
+        self._customer_name = customer_name
+        return self
+
+    def set_table(self, table_number: int):
+        self._table_number = table_number
+        return self
+
+    def add_item(self, menu_item: MenuItem, quantity: int):
+        self._items.append((menu_item, quantity))
+        return self
