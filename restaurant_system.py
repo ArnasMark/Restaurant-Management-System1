@@ -107,3 +107,10 @@ class Order:
 class OrderBuilder:
     def __init__(self):
         self.reset()
+
+    def reset(self):
+        self._order_id = None
+        self._customer_name = None
+        self._table_number = None
+        self._items = []
+        self._discount = 0.0
