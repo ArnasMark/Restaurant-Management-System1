@@ -136,3 +136,17 @@ class OrderBuilder:
             raise ValueError("Discount must be between 0 and 1.")
         self._discount = discount
         return self
+
+    def build(self) -> Order:
+        if self._order_id is None:
+            raise ValueError("Order ID must be set.")
+        if self._customer_name is None:
+            raise ValueError("Customer name must be set.")
+        if self._table_number is None:
+            raise ValueError("Table number must be set.")
+        order = Order(self._order_id, self._customer_name, self._table_number)
+        for item, quantity in self._items:
+            order.add_item(item, quantity)
+        order.discount = self._discount
+        self.reset()
+        return order
