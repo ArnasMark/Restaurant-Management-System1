@@ -65,3 +65,18 @@ class OrderItem:
 
     def subtotal(self) -> float:
         return self.menu_item.final_price() * self.quantity
+
+
+class Order:
+    def __init__(self, order_id: int, customer_name: str, table_number: int):
+        if order_id <= 0:
+            raise ValueError("Order ID must be positive.")
+        if not customer_name.strip():
+            raise ValueError("Customer name cannot be empty.")
+        self.order_id = order_id
+        self.customer_name = customer_name.strip()
+        self.table_number = table_number
+        self.items: List[OrderItem] = []
+        self.discount = 0.0
+        self.service_fee = 0.10
+        self.status = "Open"
