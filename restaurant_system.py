@@ -80,3 +80,8 @@ class Order:
         self.discount = 0.0
         self.service_fee = 0.10
         self.status = "Open"
+
+    def add_item(self, menu_item: MenuItem, quantity: int):
+        if self.status == "Closed":
+            raise ValueError("Cannot modify closed order.")
+        self.items.append(OrderItem(menu_item, quantity))
