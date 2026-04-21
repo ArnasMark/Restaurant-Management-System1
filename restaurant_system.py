@@ -103,3 +103,7 @@ class Order:
             f"Table: {self.table_number} | Status: {self.status} | "
             f"Total: {self.calculate_total():.2f} EUR"
         )
+
+class OrderBuilder:
+    def __init__(self):
+        self.reset()
