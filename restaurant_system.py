@@ -40,3 +40,6 @@ class FoodItem(MenuItem):
 class DrinkItem(MenuItem):
     def __init__(self, item_id: int, name: str, price: float, size_ml: int):
         super().__init__(item_id, name, price)
+        if size_ml <= 0:
+            raise ValueError("Drink size must be positive.")
+        self.size_ml = size_ml
