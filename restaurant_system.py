@@ -31,3 +31,7 @@ class FoodItem(MenuItem):
 
     def item_type(self) -> str:
         return "Food"
+
+    def __str__(self):
+        vegan_text = " | Vegan" if self.vegan else ""
+        return f"{super().__str__()}{vegan_text}"
