@@ -54,3 +54,11 @@ class DrinkItem(MenuItem):
 
     def __str__(self):
         return f"{super().__str__()} | {self.size_ml} ml"
+
+
+class OrderItem:
+    def __init__(self, menu_item: MenuItem, quantity: int):
+        if quantity <= 0:
+            raise ValueError("Quantity must be greater than zero.")
+        self.menu_item = menu_item
+        self.quantity = quantity
