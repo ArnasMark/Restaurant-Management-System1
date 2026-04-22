@@ -194,4 +194,10 @@ class Restaurant:
             raise ValueError("Menu item not found.")
         self.menu.remove(item)
 
+    def find_menu_item(self, item_id: int):
+        for item in self.menu:
+            if item.item_id == item_id:
+                return item
+        return None
+
 
