@@ -221,4 +221,10 @@ class Restaurant:
         for table in self.tables:
             print(table)
 
+    def find_table(self, table_number: int):
+        for table in self.tables:
+            if table.table_number == table_number:
+                return table
+        return None
+
 
