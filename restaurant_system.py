@@ -166,3 +166,10 @@ class Table:
         if self.is_reserved:
             raise ValueError("Table already reserved.")
         self.is_reserved = True
+
+    def free(self):
+        self.is_reserved = False
+
+    def __str__(self):
+        return f"Table {self.table_number} | Seats: {self.seats} | Reserved: {self.is_reserved}"
+
