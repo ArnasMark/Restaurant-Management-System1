@@ -188,4 +188,10 @@ class Restaurant:
             raise ValueError("Menu item with this ID already exists.")
         self.menu.append(item)
 
+    def remove_menu_item(self, item_id: int):
+        item = self.find_menu_item(item_id)
+        if item is None:
+            raise ValueError("Menu item not found.")
+        self.menu.remove(item)
+
 
