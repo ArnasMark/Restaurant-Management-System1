@@ -306,4 +306,24 @@ class Restaurant:
     restaurant.add_menu_item(DrinkItem(3, "Cola", 2.00, 500))
     restaurant.add_menu_item(DrinkItem(4, "Orange Juice", 2.50, 750))
 
+    def add_menu_item_ui(restaurant: Restaurant):
+    try:
+        item_type = input("Enter type (food/drink): ").strip().lower()
+        item_id = int(input("Item ID: "))
+        name = input("Name: ").strip()
+        price = float(input("Price: "))
+        if item_type == "food":
+            vegan = input("Is vegan? (y/n): ").strip().lower() == "y"
+            item = FoodItem(item_id, name, price, vegan)
+        elif item_type == "drink":
+            size_ml = int(input("Size in ml: "))
+            item = DrinkItem(item_id, name, price, size_ml)
+        else:
+            print("Invalid item type.")
+            return
+        restaurant.add_menu_item(item)
+        print("Menu item added successfully.")
+    except Exception as error:
+        print("Error:", error)
+
 
