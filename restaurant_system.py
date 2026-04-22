@@ -233,4 +233,10 @@ class Restaurant:
             raise ValueError("Table not found.")
         table.reserve()
 
+    def free_table_manually(self, table_number: int):
+        table = self.find_table(table_number)
+        if table is None:
+            raise ValueError("Table not found.")
+        table.free()
+
 
