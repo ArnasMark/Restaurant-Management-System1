@@ -258,4 +258,15 @@ class Restaurant:
             for item in order.items:
                 print(f"  - {item.menu_item.name} x{item.quantity} = {item.subtotal():.2f} EUR")
 
+    def close_order(self, order_id: int):
+        for order in self.orders:
+            if order.order_id == order_id:
+                order.close_order()
+                table = self.find_table(order.table_number)
+                if table:
+                    table.free()
+                print("Order closed successfully.")
+                return
+        raise ValueError("Order not found.")
+
 
