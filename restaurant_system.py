@@ -297,4 +297,13 @@ class Restaurant:
             json.dump(data, file, indent=4)
         print("Data saved successfully.")
 
+    def load_default_data(restaurant: Restaurant):
+    restaurant.add_table(Table(1, 4))
+    restaurant.add_table(Table(2, 2))
+    restaurant.add_table(Table(3, 6))
+    restaurant.add_menu_item(FoodItem(1, "Pizza", 8.50, False))
+    restaurant.add_menu_item(FoodItem(2, "Vegan Salad", 6.20, True))
+    restaurant.add_menu_item(DrinkItem(3, "Cola", 2.00, 500))
+    restaurant.add_menu_item(DrinkItem(4, "Orange Juice", 2.50, 750))
+
 
