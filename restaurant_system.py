@@ -161,3 +161,8 @@ class Table:
         self.table_number = table_number
         self.seats = seats
         self.is_reserved = False
+
+    def reserve(self):
+        if self.is_reserved:
+            raise ValueError("Table already reserved.")
+        self.is_reserved = True
