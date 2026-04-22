@@ -183,4 +183,9 @@ class Restaurant:
         self.orders: List[Order] = []
         self.tables: List[Table] = []
 
+    def add_menu_item(self, item: MenuItem):
+        if any(existing.item_id == item.item_id for existing in self.menu):
+            raise ValueError("Menu item with this ID already exists.")
+        self.menu.append(item)
+
 
