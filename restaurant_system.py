@@ -173,3 +173,14 @@ class Table:
     def __str__(self):
         return f"Table {self.table_number} | Seats: {self.seats} | Reserved: {self.is_reserved}"
 
+
+class Restaurant:
+    def __init__(self, name: str):
+        if not name.strip():
+            raise ValueError("Restaurant name cannot be empty.")
+        self.name = name.strip()
+        self.menu: List[MenuItem] = []
+        self.orders: List[Order] = []
+        self.tables: List[Table] = []
+
+
