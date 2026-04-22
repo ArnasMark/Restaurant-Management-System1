@@ -326,4 +326,12 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
+    def remove_menu_item_ui(restaurant: Restaurant):
+    try:
+        item_id = int(input("Enter menu item ID to remove: "))
+        restaurant.remove_menu_item(item_id)
+        print("Menu item removed successfully.")
+    except Exception as error:
+        print("Error:", error)
+
 
