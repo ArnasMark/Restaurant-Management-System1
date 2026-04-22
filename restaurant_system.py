@@ -334,4 +334,17 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
+    def create_order_ui(restaurant: Restaurant):
+    try:
+        order_id = int(input("Order ID: "))
+        customer_name = input("Customer name: ").strip()
+        table_number = int(input("Table number: "))
+        discount_percent = float(input("Discount % (0 if none): "))
+
+        builder = OrderBuilder()
+        builder.set_order_id(order_id)
+        builder.set_customer(customer_name)
+        builder.set_table(table_number)
+        builder.set_discount(discount_percent / 100)
+
 
