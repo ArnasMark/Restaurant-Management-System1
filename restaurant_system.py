@@ -208,4 +208,9 @@ class Restaurant:
         for item in self.menu:
             print(item)
 
+    def add_table(self, table: Table):
+        if any(existing.table_number == table.table_number for existing in self.tables):
+            raise ValueError("Table already exists.")
+        self.tables.append(table)
+
 
