@@ -272,4 +272,29 @@ class Restaurant:
     def total_revenue(self) -> float:
         return sum(order.calculate_total() for order in self.orders if order.status == "Closed")
 
+    def save_orders(self, filename: str):
+        data = []
+        for order in self.orders:
+            data.append({
+                "order_id": order.order_id,
+                "customer_name": order.customer_name,
+                "table_number": order.table_number,
+                "status": order.status,
+                "discount": order.discount,
+                "service_fee": order.service_fee,
+                "total": order.calculate_total(),
+                "items": [
+                    {
+                        "item_id": item.menu_item.item_id,
+                        "item_name": item.menu_item.name,
+                        "quantity": item.quantity,
+                        "subtotal": item.subtotal()
+                    }
+                    for item in order.items
+                ]
+            })
+        with open(filename, "w", encoding="utf-8") as file:
+            json.dump(data, file, indent=4)
+        print("Data saved successfully.")
+
 
