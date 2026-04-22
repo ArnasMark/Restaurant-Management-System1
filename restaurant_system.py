@@ -269,4 +269,7 @@ class Restaurant:
                 return
         raise ValueError("Order not found.")
 
+    def total_revenue(self) -> float:
+        return sum(order.calculate_total() for order in self.orders if order.status == "Closed")
+
 
