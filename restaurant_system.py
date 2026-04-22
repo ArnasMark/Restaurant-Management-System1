@@ -239,4 +239,13 @@ class Restaurant:
             raise ValueError("Table not found.")
         table.free()
 
+    def create_order(self, order: Order):
+        table = self.find_table(order.table_number)
+        if table is None:
+            raise ValueError("Table not found.")
+        if table.is_reserved:
+            raise ValueError("Table is already reserved.")
+        table.reserve()
+        self.orders.append(order)
+
 
