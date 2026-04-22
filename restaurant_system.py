@@ -200,4 +200,12 @@ class Restaurant:
                 return item
         return None
 
+    def show_menu(self):
+        print("\n=== MENU ===")
+        if not self.menu:
+            print("Menu is empty.")
+            return
+        for item in self.menu:
+            print(item)
+
 
