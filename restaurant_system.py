@@ -213,4 +213,12 @@ class Restaurant:
             raise ValueError("Table already exists.")
         self.tables.append(table)
 
+    def show_tables(self):
+        print("\n=== TABLES ===")
+        if not self.tables:
+            print("No tables found.")
+            return
+        for table in self.tables:
+            print(table)
+
 
