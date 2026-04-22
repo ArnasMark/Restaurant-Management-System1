@@ -248,4 +248,14 @@ class Restaurant:
         table.reserve()
         self.orders.append(order)
 
+    def show_orders(self):
+        print("\n=== ORDERS ===")
+        if not self.orders:
+            print("No orders found.")
+            return
+        for order in self.orders:
+            print(order)
+            for item in order.items:
+                print(f"  - {item.menu_item.name} x{item.quantity} = {item.subtotal():.2f} EUR")
+
 
