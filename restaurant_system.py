@@ -359,4 +359,11 @@ class Restaurant:
             quantity = int(input("Quantity: "))
             builder.add_item(item, quantity)
 
+        order = builder.build()
+        restaurant.create_order(order)
+        print("\nOrder created successfully.")
+        print(order)
+    except Exception as error:
+        print("Error:", error)
+
 
