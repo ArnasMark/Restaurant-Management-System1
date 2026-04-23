@@ -393,4 +393,20 @@ class Restaurant:
     restaurant = Restaurant("Restaurant Management System")
     load_default_data(restaurant)
 
+        while True:
+        print("\n=== RESTAURANT MANAGEMENT SYSTEM ===")
+        print("1. Show menu")
+        print("2. Add menu item")
+        print("3. Remove menu item")
+        print("4. Show tables")
+        print("5. Reserve table")
+        print("6. Free table")
+        print("7. Create order")
+        print("8. Show orders")
+        print("9. Close order")
+        print("10. Show total revenue")
+        print("11. Save data and Exit")
+
+        choice = input("Choose option: ").strip()
+
 
