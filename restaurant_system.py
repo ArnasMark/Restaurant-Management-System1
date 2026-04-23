@@ -381,4 +381,12 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
+    def free_table_ui(restaurant: Restaurant):
+    try:
+        table_number = int(input("Enter table number to free: "))
+        restaurant.free_table_manually(table_number)
+        print("Table freed successfully.")
+    except Exception as error:
+        print("Error:", error)
+
 
