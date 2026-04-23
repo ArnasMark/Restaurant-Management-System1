@@ -409,4 +409,31 @@ class Restaurant:
 
         choice = input("Choose option: ").strip()
 
+        if choice == "1":
+            restaurant.show_menu()
+        elif choice == "2":
+            add_menu_item_ui(restaurant)
+        elif choice == "3":
+            remove_menu_item_ui(restaurant)
+        elif choice == "4":
+            restaurant.show_tables()
+        elif choice == "5":
+            reserve_table_ui(restaurant)
+        elif choice == "6":
+            free_table_ui(restaurant)
+        elif choice == "7":
+            create_order_ui(restaurant)
+        elif choice == "8":
+            restaurant.show_orders()
+        elif choice == "9":
+            close_order_ui(restaurant)
+        elif choice == "10":
+            print(f"Total revenue: {restaurant.total_revenue():.2f} EUR")
+        elif choice == "11":
+            restaurant.save_orders("restaurant_data.json")
+            print("Program finished successfully.")
+            break
+        else:
+            print("Invalid option.")
+
 
