@@ -389,4 +389,8 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
+    def main():
+    restaurant = Restaurant("Restaurant Management System")
+    load_default_data(restaurant)
+
 
