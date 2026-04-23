@@ -366,4 +366,11 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
+    def close_order_ui(restaurant: Restaurant):
+    try:
+        order_id = int(input("Enter order ID to close: "))
+        restaurant.close_order(order_id)
+    except Exception as error:
+        print("Error:", error)
+
 
