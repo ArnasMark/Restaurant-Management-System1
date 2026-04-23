@@ -347,4 +347,16 @@ class Restaurant:
         builder.set_table(table_number)
         builder.set_discount(discount_percent / 100)
 
+        while True:
+            restaurant.show_menu()
+            item_id = int(input("Enter menu item ID (0 to finish): "))
+            if item_id == 0:
+                break
+            item = restaurant.find_menu_item(item_id)
+            if item is None:
+                print("Menu item not found.")
+                continue
+            quantity = int(input("Quantity: "))
+            builder.add_item(item, quantity)
+
 
