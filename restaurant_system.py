@@ -373,4 +373,12 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
+    def reserve_table_ui(restaurant: Restaurant):
+    try:
+        table_number = int(input("Enter table number to reserve: "))
+        restaurant.reserve_table_manually(table_number)
+        print("Table reserved successfully.")
+    except Exception as error:
+        print("Error:", error)
+
 
