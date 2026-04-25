@@ -29,3 +29,16 @@ class RestaurantSystemTests(unittest.TestCase):
         )
         self.assertEqual(order.customer_name, "Karolis")
         self.assertEqual(len(order.items), 1)
+
+    def test_close_order_changes_status(self):
+        pizza = FoodItem(1, "Pizza", 8.5, False)
+        builder = OrderBuilder()
+        order = (
+            builder.set_order_id(1)
+            .set_customer("Karolis")
+            .set_table(2)
+            .add_item(pizza, 1)
+            .build()
+        )
+        order.close_order()
+        self.assertEqual(order.status, "Closed")
