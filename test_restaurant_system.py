@@ -71,5 +71,11 @@ class RestaurantSystemTests(unittest.TestCase):
         restaurant.free_table_manually(1)
         self.assertFalse(restaurant.find_table(1).is_reserved)
 
+    def test_clear_orders(self):
+        restaurant = Restaurant("Test")
+        restaurant.orders.append("fake")
+        restaurant.clear_orders("test.json")
+        self.assertEqual(len(restaurant.orders), 0)
+
 if __name__ == "__main__":
     unittest.main()
