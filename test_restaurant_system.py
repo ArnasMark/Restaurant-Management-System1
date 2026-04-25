@@ -42,3 +42,23 @@ class RestaurantSystemTests(unittest.TestCase):
         )
         order.close_order()
         self.assertEqual(order.status, "Closed")
+
+    def test_total_revenue_counts_only_closed_orders(self):
+        restaurant = Restaurant("Test Restaurant")
+        restaurant.add_table(Table(1, 4))
+        restaurant.add_table(Table(2, 4))
+        pizza = FoodItem(1, "Pizza", 8.5, False)
+        restaurant.add_menu_item(pizza)
+
+        order1 = (
+            OrderBuilder().set_order_id(1).set_customer("A").set_table(1).add_item(pizza, 2).build()
+        )
+        restaurant.create_order(order1)
+        restaurant.close_order(1)
+
+        order2 = (
+            OrderBuilder().set_order_id(2).set_customer("B").set_table(2).add_item(pizza, 1).build()
+        )
+        restaurant.create_order(order2)
+
+        self.assertAlmostEqual(restaurant.total_revenue(), order1.calculate_total(), places=5)
