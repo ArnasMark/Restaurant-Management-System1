@@ -450,6 +450,7 @@ def main():
         print("9. Close order")
         print("10. Show total revenue")
         print("11. Save data and Exit")
+        print("12. Clear all orders")
 
         choice = input("Choose option: ").strip()
 
@@ -473,6 +474,8 @@ def main():
             close_order_ui(restaurant)
         elif choice == "10":
             print(f"Total revenue: {restaurant.total_revenue():.2f} EUR")
+        elif choice == "12":
+            restaurant.clear_orders("restaurant_data.json")
         elif choice == "11":
             restaurant.save_orders("restaurant_data.json")
             print("Program finished successfully.")
