@@ -70,3 +70,6 @@ class RestaurantSystemTests(unittest.TestCase):
         self.assertTrue(restaurant.find_table(1).is_reserved)
         restaurant.free_table_manually(1)
         self.assertFalse(restaurant.find_table(1).is_reserved)
+
+if __name__ == "__main__":
+    unittest.main()
