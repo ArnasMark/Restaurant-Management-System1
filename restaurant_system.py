@@ -435,6 +435,7 @@ def free_table_ui(restaurant: Restaurant):
 def main():
     restaurant = Restaurant("Restaurant Management System")
     load_default_data(restaurant)
+    restaurant.load_orders("restaurant_data.json")
 
     while True:
         print("\n=== RESTAURANT MANAGEMENT SYSTEM ===")
