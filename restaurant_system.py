@@ -303,7 +303,7 @@ class Restaurant:
             json.dump(data, file, indent=4)
         print("Data saved successfully.")
 
-    def load_default_data(restaurant: Restaurant):
+def load_default_data(restaurant: Restaurant):
     restaurant.add_table(Table(1, 4))
     restaurant.add_table(Table(2, 2))
     restaurant.add_table(Table(3, 6))
@@ -312,7 +312,7 @@ class Restaurant:
     restaurant.add_menu_item(DrinkItem(3, "Cola", 2.00, 500))
     restaurant.add_menu_item(DrinkItem(4, "Orange Juice", 2.50, 750))
 
-    def add_menu_item_ui(restaurant: Restaurant):
+def add_menu_item_ui(restaurant: Restaurant):
     try:
         item_type = input("Enter type (food/drink): ").strip().lower()
         item_id = int(input("Item ID: "))
@@ -332,7 +332,7 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
-    def remove_menu_item_ui(restaurant: Restaurant):
+def remove_menu_item_ui(restaurant: Restaurant):
     try:
         item_id = int(input("Enter menu item ID to remove: "))
         restaurant.remove_menu_item(item_id)
@@ -340,7 +340,7 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
-    def create_order_ui(restaurant: Restaurant):
+def create_order_ui(restaurant: Restaurant):
     try:
         order_id = int(input("Order ID: "))
         customer_name = input("Customer name: ").strip()
@@ -372,14 +372,14 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
-    def close_order_ui(restaurant: Restaurant):
+def close_order_ui(restaurant: Restaurant):
     try:
         order_id = int(input("Enter order ID to close: "))
         restaurant.close_order(order_id)
     except Exception as error:
         print("Error:", error)
 
-    def reserve_table_ui(restaurant: Restaurant):
+def reserve_table_ui(restaurant: Restaurant):
     try:
         table_number = int(input("Enter table number to reserve: "))
         restaurant.reserve_table_manually(table_number)
@@ -387,7 +387,7 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
-    def free_table_ui(restaurant: Restaurant):
+def free_table_ui(restaurant: Restaurant):
     try:
         table_number = int(input("Enter table number to free: "))
         restaurant.free_table_manually(table_number)
@@ -395,11 +395,11 @@ class Restaurant:
     except Exception as error:
         print("Error:", error)
 
-    def main():
+def main():
     restaurant = Restaurant("Restaurant Management System")
     load_default_data(restaurant)
 
-        while True:
+    while True:
         print("\n=== RESTAURANT MANAGEMENT SYSTEM ===")
         print("1. Show menu")
         print("2. Add menu item")
