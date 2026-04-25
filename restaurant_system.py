@@ -302,6 +302,43 @@ class Restaurant:
         with open(filename, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
         print("Data saved successfully.")
+        
+    def load_orders(self, filename: str):
+        if not os.path.exists(filename):
+            print("Data file not found. Starting fresh.")
+            return
+
+        with open(filename, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        self.orders.clear()
+
+        for order_data in data:
+            order = Order(
+                order_data["order_id"],
+                order_data["customer_name"],
+                order_data["table_number"]
+            )
+            order.discount = order_data["discount"]
+            order.service_fee = order_data["service_fee"]
+
+            for item_data in order_data["items"]:
+                menu_item = self.find_menu_item(item_data["item_id"])
+                if menu_item:
+                    order.add_item(menu_item, item_data["quantity"])
+
+            order.status = order_data["status"]
+            self.orders.append(order)
+
+        print("Orders loaded.")
+
+    def clear_orders(self, filename: str):
+        self.orders.clear()
+
+        with open(filename, "w", encoding="utf-8") as file:
+            json.dump([], file, indent=4)
+
+        print("All orders cleared.")
 
 def load_default_data(restaurant: Restaurant):
     restaurant.add_table(Table(1, 4))
