@@ -62,3 +62,11 @@ class RestaurantSystemTests(unittest.TestCase):
         restaurant.create_order(order2)
 
         self.assertAlmostEqual(restaurant.total_revenue(), order1.calculate_total(), places=5)
+
+    def test_table_reserve_and_free(self):
+        restaurant = Restaurant("Test")
+        restaurant.add_table(Table(1, 4))
+        restaurant.reserve_table_manually(1)
+        self.assertTrue(restaurant.find_table(1).is_reserved)
+        restaurant.free_table_manually(1)
+        self.assertFalse(restaurant.find_table(1).is_reserved)
